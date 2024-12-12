@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Info Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .info-display {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .drone-image {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Drone Information</h1>
+        <div class="info-display" id="infoDisplay"></div>
+    </div>
+
+    <script>
+        const droneData = {
+            name: "탄약투하공격 소형드론",
+            info: "탄약투하 드론은 살상반경이 7m인 드론 전용 이중목적고폭탄 3발을 탑재해 장갑차량이나 병력 등 목표물을 공격하고 자체적으로 피해평가를 수행해 필요시 재공격할 수 있는 드론",
+            manufacturer: "POONGSAN Inc.",
+            contact: "ysahn@poongsan.co.kr | 042)609-7885",
+            lostMessage: "If found, please contact POONGSAN Inc. at ysahn@poongsan.co.kr or call 042)609-7885.",
+            imageUrl: "./mad.jpg"
+        };
+
+        function displayDroneInfo(droneData) {
+            const infoDisplay = document.getElementById('infoDisplay');
+            infoDisplay.innerHTML = `
+                <img src="${droneData.imageUrl || '#'}" alt="${droneData.name}" class="drone-image">
+                <h2>Drone Information</h2>
+                <p><strong>Name:</strong> ${droneData.name}</p>
+                <p><strong>Details:</strong> ${droneData.info}</p>
+                <p><strong>Manufacturer:</strong> ${droneData.manufacturer}</p>
+                <p><strong>Contact:</strong> ${droneData.contact}</p>
+                <p><strong>Lost Message:</strong> ${droneData.lostMessage}</p>
+            `;
+        }
+
+        // Display the drone info on page load
+        displayDroneInfo(droneData);
+    </script>
+</body>
+</html>
